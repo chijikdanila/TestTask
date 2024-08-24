@@ -1,0 +1,62 @@
+﻿<Window x:Class="TestTask.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TestTask"
+        mc:Ignorable="d"
+        MinHeight="900"
+        MinWidth="1200"
+        Title="Test task">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="Height" Value="100" />
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Arial" />
+            <Setter Property="FontSize" Value="36" />
+            <Setter Property="Width" Value="auto" />
+            <Setter Property="Height" Value="75" />
+            <Setter Property="TextAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+
+        <Canvas x:Name="Task1" Visibility="Visible" Margin="0,0,150,0">
+            <Button x:Name="createFilesButton" Content="Create" Click="createFiles_Click" Height="265" Width="525" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Button x:Name="mergeFilesButton" Content="Merge" Click="mergeFiles_Click" Canvas.Left="520" HorizontalAlignment="Left" VerticalAlignment="Center" Height="265" Width="531"/>
+            <Button x:Name="deleteRowsFromFilesButton" Content="Delete" Click="deleteRows_Click" Canvas.Top="265" Height="265" Width="520" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <Button x:Name="importButton" Content="Import" Click="import_Click" Canvas.Left="520" Canvas.Top="265" Height="265" Width="530" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock x:Name="showProcentTB" HorizontalAlignment="Center" VerticalAlignment="Top" Width="1050" Canvas.Top="530" Height="106"/>
+            <ProgressBar x:Name="progressBar" Minimum="0" Maximum="100" Width="1051" Height="89" HorizontalAlignment="Center" VerticalAlignment="Top" Canvas.Top="636"/>
+            <TextBlock x:Name="showPathTB" HorizontalAlignment="Left" VerticalAlignment="Center" Width="922" Canvas.Left="128" Canvas.Top="725" Height="100"/>
+            <Button x:Name="chooseFolderPathButton" Content="Path" Click="chooseFolderPath_Click" Canvas.Top="725" HorizontalAlignment="Left" VerticalAlignment="Center" Width="128"/>
+
+        </Canvas>
+
+        <Canvas x:Name="Task2" Visibility="Hidden" Margin="0,0,150,0">
+            <Button x:Name="chooseFilePathButton" Content="Path" Click="chooseFilePath_Click" HorizontalAlignment="Left" Width="160" VerticalAlignment="Center"/>
+            <ListBox x:Name="filesListBox" SelectionChanged="filesListBox_SelectionChanged" Width="155" Height="725" HorizontalAlignment="Center" Canvas.Top="100" VerticalAlignment="Center"/>
+            <DataGrid x:Name="dataGrid" AutoGenerateColumns="True" Height="825" HorizontalAlignment="Center" Width="895" Canvas.Left="155" VerticalAlignment="Top"/>
+        </Canvas>
+        <StackPanel Margin="1050,0,0,0" Orientation="Vertical">
+
+            <Button x:Name="showTask1Button" Width="150" Height="413" Content="Task1" Click="showTask1_Click" RenderTransformOrigin="0.5,0.5">
+                <Button.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform AngleX="-0.062"/>
+                        <RotateTransform/>
+                        <TranslateTransform X="-0.199"/>
+                    </TransformGroup>
+                </Button.RenderTransform>
+            </Button>
+            <Button x:Name="showTask2Button" Width="150" Height="413" Content="Task2" Click="showTask2_Click"/>
+
+        </StackPanel>
+
+    </Grid>
+</Window>
